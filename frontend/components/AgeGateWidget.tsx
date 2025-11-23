@@ -91,7 +91,7 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
         appName: `${siteName} Age Verification`,
         scope: "agegate-ai-v1", // Must match contract scopeSeed
         endpoint: CONTRACT_ADDRESS,
-        endpointType: "celo-staging", // Testnet mode
+        endpointType: "staging_celo", // Testnet mode (Celo Sepolia)
         userId: address,
         userIdType: "hex",
         userDefinedData: minAge.toString(), // Pass required age to contract
@@ -108,6 +108,11 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
     setTimeout(() => {
       checkVerification();
     }, 3000);
+  };
+
+  const handleVerificationError = (data: { error_code?: string; reason?: string }) => {
+    console.error("Verification error:", data);
+    setError(data.reason || "Verification failed. Please try again.");
   };
 
   // Loading state
@@ -215,6 +220,7 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
             <SelfQRcodeWrapper
               selfApp={selfApp}
               onSuccess={handleVerificationSuccess}
+              onError={handleVerificationError}
             />
           </div>
         )}
