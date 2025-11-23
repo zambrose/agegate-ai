@@ -34,5 +34,12 @@ export default defineConfig({
       url: configVariable("SEPOLIA_RPC_URL"),
       accounts: [configVariable("SEPOLIA_PRIVATE_KEY")],
     },
+    // Add Celo Sepolia network
+    celoSepolia: {
+      type: "http",
+      chainType: "l1",
+      url: configVariable("CELO_SEPOLIA_RPC"),
+      accounts: [configVariable("CELO_SEPOLIA_PRIVATE_KEY")],
+    },
   },
 });
