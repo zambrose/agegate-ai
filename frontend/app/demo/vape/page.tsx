@@ -1,18 +1,24 @@
+"use client";
+
 import { AgeGateWidget } from "@/components/AgeGateWidget";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function VapeShopDemo() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 p-8">
       <div className="max-w-4xl mx-auto">
-        {/* Back button */}
-        <Link
-          href="/"
-          className="inline-block mb-6 text-purple-700 hover:text-purple-900 underline"
-        >
-          ← Back to Home
-        </Link>
+        {/* Header with back button and wallet */}
+        <div className="flex justify-between items-center mb-6">
+          <Link
+            href="/"
+            className="text-purple-700 hover:text-purple-900 underline"
+          >
+            ← Back to Home
+          </Link>
+          <ConnectButton />
+        </div>
 
         <header className="text-center mb-12">
           <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-4 shadow-xl">

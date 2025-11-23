@@ -1,17 +1,23 @@
+"use client";
+
 import { AgeGateWidget } from "@/components/AgeGateWidget";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function AdultContentDemo() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-700 p-8">
       <div className="max-w-4xl mx-auto">
-        <Link
-          href="/"
-          className="inline-block mb-6 text-gray-400 hover:text-white underline"
-        >
-          ← Back to Home
-        </Link>
+        <div className="flex justify-between items-center mb-6">
+          <Link
+            href="/"
+            className="text-gray-400 hover:text-white underline"
+          >
+            ← Back to Home
+          </Link>
+          <ConnectButton />
+        </div>
 
         <header className="text-center mb-12">
           <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-gray-800 to-gray-600 rounded-2xl p-4 shadow-xl">
