@@ -90,7 +90,7 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
         version: 2,
         appName: `${siteName} Age Verification`,
         scope: "agegate-ai-v1", // Must match contract scopeSeed
-        endpoint: CONTRACT_ADDRESS,
+        endpoint: CONTRACT_ADDRESS.toLowerCase(), // MUST be lowercase per Self docs
         endpointType: "staging_celo", // Testnet mode (Celo Sepolia)
         userId: address,
         userIdType: "hex",
@@ -230,7 +230,7 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
             <p className="font-semibold">How to verify:</p>
             <ol className="list-decimal list-inside space-y-1 pl-2">
               <li>Download Self mobile app (iOS/Android)</li>
-              <li>Enable testnet mode in app settings</li>
+              <li className="font-bold text-amber-600">⚠️ Enable testnet mode in app settings</li>
               <li>Scan the QR code above</li>
               <li>Follow prompts to verify with passport</li>
               <li>Return here to see verification</li>
