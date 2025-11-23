@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
     },
   },
 
+  // Empty turbopack config to silence the warning
+  turbopack: {},
+
   webpack: (config) => {
     // Externalize problematic packages that include test files
     config.externals = config.externals || [];
