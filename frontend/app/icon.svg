@@ -1,0 +1,42 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Purple gradient background -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="128" cy="128" r="128" fill="url(#grad)"/>
+
+  <!-- Shield shape -->
+  <path d="M128 40 L180 55 L180 130 C180 160 165 180 128 200 C91 180 76 160 76 130 L76 55 Z"
+        fill="white"
+        opacity="0.95"/>
+
+  <!-- Inner shield with gradient -->
+  <path d="M128 52 L172 65 L172 130 C172 156 159 173 128 190 C97 173 84 156 84 130 L84 65 Z"
+        fill="url(#grad)"/>
+
+  <!-- 18+ text -->
+  <text x="128" y="125"
+        font-family="Arial, sans-serif"
+        font-size="56"
+        font-weight="900"
+        fill="white"
+        text-anchor="middle"
+        dominant-baseline="middle">18+</text>
+
+  <!-- Green checkmark circle -->
+  <circle cx="190" cy="190" r="32" fill="#10b981"/>
+  <circle cx="190" cy="190" r="28" fill="white" opacity="0.2"/>
+
+  <!-- Checkmark -->
+  <path d="M180 190 L187 197 L200 180"
+        stroke="white"
+        stroke-width="6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+</svg>

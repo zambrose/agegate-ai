@@ -6,7 +6,9 @@ Built for ETHGlobal Buenos Aires 2025
 
 ---
 
-> 🫠 **Status:** Verification currently failing with transaction error (-32000). Smart contract deployed and QR codes generating correctly, but proof submission to blockchain is hitting errors. Still debugging with Self Protocol team. Everything else works!
+⚠️⚠️⚠️
+
+> **Status:** Verification currently failing with transaction error (-32000). Smart contract deployed and QR codes generating correctly, but proof submission to blockchain is hitting errors. Still debugging... 😅 Everything else works!
 
 ---
 
@@ -30,6 +32,7 @@ Your name, birth date, passport number? Never stored anywhere. Just a cryptograp
 **Live demo:** [agegate-ai.vercel.app](https://agegate-ai.vercel.app)
 
 Three demo sites show how it works:
+
 - 💨 Vape shop (21+ required)
 - 🎰 Casino (18+ required)
 - 🔞 Adult content (18+ required)
@@ -39,17 +42,20 @@ Verify once on any site, you're verified everywhere.
 ## How It Works
 
 **Smart Contract** (Solidity on Celo Sepolia)
+
 - Extends Self Protocol's verification system
 - Stores only: wallet address → minimum age verified
 - Zero personal info touches the blockchain
 
 **Frontend** (Next.js + RainbowKit)
+
 - Connect your wallet
 - Get a QR code
 - Scan with Self mobile app
 - Done
 
 **The Magic** (Self Protocol)
+
 - Reads your passport's NFC chip
 - Generates zero-knowledge proof of age
 - Submits to blockchain
@@ -88,11 +94,13 @@ npx hardhat run scripts/deploy.ts --network celoSepolia
 ## Why This Matters
 
 Current age verification is broken:
+
 - Upload your ID to every site (privacy risk)
 - Companies store your personal data (data breach risk)
 - No interoperability (verify 20 times for 20 sites)
 
 AgeGate AI fixes all three:
+
 - ✅ Verify with cryptography, not uploaded documents
 - ✅ Zero personal data stored anywhere
 - ✅ One verification works everywhere
@@ -102,10 +110,17 @@ AgeGate AI fixes all three:
 - [Self Protocol](https://self.xyz) - Zero-knowledge passport verification
 - [Celo](https://celo.org) - Carbon-negative blockchain
 - [RainbowKit](https://rainbowkit.com) - Wallet connection UI
+- ...and a little boost here & there from Claude Code / Sonnet 4.5 👽
 
----
+## Links
 
-**Live demo:** https://agegate-ai.vercel.app
-**Contract:** https://celo-sepolia.blockscout.com/address/0x689f87307d49f3f58dc44ab62285e931e3f8c6f2
+- **Live demo:** https://agegate-ai.vercel.app
+- **Contract:** https://celo-sepolia.blockscout.com/address/0x689f87307d49f3f58dc44ab62285e931e3f8c6f2
 
-Built at ETHGlobal Buenos Aires 2025 🇦🇷
+## Built At
+
+ETHGlobal Buenos Aires 2025 🇦🇷
+
+## Contributors
+
+@zambrose 👾
