@@ -1,0 +1,15 @@
+{
+  "celoSepolia": {
+    "AgeGateRegistry": {
+      "address": "0x7c60a061df83efe534975f00d405ea4606a5cc30",
+      "deployer": "0xd2b2f62778914245f093d3983477596edc5c7d3c",
+      "deploymentDate": "2025-11-22",
+      "scope": "10741862476737212314122332458973413468440189874054853110670750116648646039786",
+      "config18Plus": "0xc52f992ebee4435b00b65d2c74b12435e96359d1ccf408041528414e6ea687bc",
+      "config21Plus": "0xd38655ad3441438e768552b40f8e068ff26a04343093483b3872a3bacfc50173",
+      "hubV2Address": "0x16ECBA51e18a4a7e61fdC417f0d47AFEeDfbed74",
+      "scopeSeed": "agegate-ai-v1",
+      "blockscout": "https://celo-sepolia.blockscout.com/address/0x7c60a061df83efe534975f00d405ea4606a5cc30"
+    }
+  }
+}
