@@ -95,7 +95,9 @@ contract AgeGateRegistry is SelfVerificationRoot {
         ISelfVerificationRoot.GenericDiscloseOutputV2 memory output,
         bytes memory userData
     ) internal override {
-        address user = msg.sender;
+        // Convert userIdentifier (uint256) to address - the Hub contract passes
+        // the user's address encoded as uint256 in the output struct
+        address user = address(uint160(output.userIdentifier));
         uint256 minAge = abi.decode(userData, (uint256));
 
         userMinAge[user] = minAge;
@@ -121,15 +123,15 @@ contract AgeGateRegistry is SelfVerificationRoot {
      * @param user Address to query
      * @return minAge The minimum age threshold user verified for
      * @return timestamp When verification occurred (Unix timestamp)
-     * @return isVerified Whether user has any verification on record
+     * @return verified Whether user has any verification on record
      */
     function getVerificationDetails(address user) external view returns (
         uint256 minAge,
         uint256 timestamp,
-        bool isVerified
+        bool verified
     ) {
         minAge = userMinAge[user];
         timestamp = verificationTimestamp[user];
-        isVerified = minAge > 0;
+        verified = minAge > 0;
     }
 }
