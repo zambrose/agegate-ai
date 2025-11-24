@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useAccount, usePublicClient } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { SelfQRcodeWrapper, SelfAppBuilder } from "@selfxyz/qrcode";
+import { encodeAbiParameters } from "viem";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -94,7 +95,7 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
         endpointType: "staging_celo", // Testnet mode (Celo Sepolia)
         userId: address,
         userIdType: "hex",
-        userDefinedData: minAge.toString(), // Pass required age to contract
+        userDefinedData: encodeAbiParameters([{ type: "uint256" }], [BigInt(minAge)]), // ABI-encode for contract decode
         disclosures: {
           minimumAge: minAge,
           excludedCountries: [],

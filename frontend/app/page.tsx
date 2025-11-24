@@ -96,7 +96,7 @@ export default function Home() {
             ETHGlobal Buenos Aires 2025 Hackathon Project
           </p>
           <a
-            href="https://celo-sepolia.blockscout.com/address/0x7c60a061df83efe534975f00d405ea4606a5cc30"
+            href={`https://celo-sepolia.blockscout.com/address/${process.env.NEXT_PUBLIC_CONTRACT_ADDRESS?.toLowerCase() ?? "0x689f87307d49f3f58dc44ab62285e931e3f8c6f2"}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-sm underline opacity-75 hover:opacity-100 transition-opacity"
