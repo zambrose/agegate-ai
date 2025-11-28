@@ -17,6 +17,7 @@ interface AgeGateWidgetProps {
 
 const CONTRACT_ADDRESS = process.env
   .NEXT_PUBLIC_CONTRACT_ADDRESS as `0x${string}`;
+const SELF_DEBUG = process.env.NEXT_PUBLIC_SELF_DEBUG === "true";
 
 // Minimal ABI for reading contract
 const AGEGATE_ABI = [
@@ -85,6 +86,20 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
     }
   }
 
+  const encodedMinAge = encodeAbiParameters([{ type: "uint256" }], [BigInt(minAge)]);
+
+  useEffect(() => {
+    if (SELF_DEBUG && address) {
+      console.info("Self QR config", {
+        address,
+        minAge,
+        encodedMinAge,
+        contract: CONTRACT_ADDRESS,
+        scope: "agegate-ai-v1",
+      });
+    }
+  }, [address, encodedMinAge, minAge]);
+
   // Build Self Protocol QR code
   const selfApp = address
     ? new SelfAppBuilder({
@@ -95,7 +110,7 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
         endpointType: "staging_celo", // Testnet mode (Celo Sepolia)
         userId: address,
         userIdType: "hex",
-        userDefinedData: encodeAbiParameters([{ type: "uint256" }], [BigInt(minAge)]), // ABI-encode for contract decode
+        userDefinedData: encodedMinAge, // ABI-encode for contract decode
         disclosures: {
           minimumAge: minAge,
           excludedCountries: [],
