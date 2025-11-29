@@ -6,12 +6,6 @@ Built for ETHGlobal Buenos Aires 2025
 
 ---
 
-⚠️⚠️⚠️
-
-> **Status:** Verification currently failing with transaction error (-32000). Smart contract deployed and QR codes generating correctly, but proof submission to blockchain is hitting errors. Still debugging... 😅 Everything else works!
-
----
-
 ## The Problem
 
 Every age-restricted website asks you to upload your ID. That's dozens of sites storing your passport scan, driver's license photo, or selfie. It's privacy nightmare and nobody likes it.

@@ -41,6 +41,7 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
   const [isVerified, setIsVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [timestamp, setTimestamp] = useState<bigint | null>(null);
+  const [lastChecked, setLastChecked] = useState<Date | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   // Check verification when wallet connects
@@ -77,6 +78,7 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
         setIsVerified(false);
         setTimestamp(null);
       }
+      setLastChecked(new Date());
     } catch (err) {
       console.error("Error checking verification:", err);
       setError("Failed to check verification status");
@@ -173,6 +175,11 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
               Verified: {new Date(Number(timestamp) * 1000).toLocaleDateString()}
             </p>
           )}
+          {lastChecked && (
+            <p className="text-xs text-muted-foreground mt-1">
+              Last checked: {lastChecked.toLocaleTimeString()}
+            </p>
+          )}
         </CardHeader>
         <CardContent>
           <Alert className="bg-green-100 border-green-200">
@@ -185,6 +192,26 @@ export function AgeGateWidget({ minAge, siteName }: AgeGateWidgetProps) {
               </p>
             </AlertDescription>
           </Alert>
+          <div className="flex flex-col sm:flex-row gap-3 mt-4">
+            <Button variant="outline" onClick={() => checkVerification()} className="flex-1">
+              Re-check on chain
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setIsVerified(false);
+                setTimestamp(null);
+                setLastChecked(new Date());
+                setError(null);
+              }}
+              className="flex-1"
+            >
+              Reset locally
+            </Button>
+          </div>
+          <p className="text-[10px] text-muted-foreground mt-2 text-center">
+            Reset is local only; your on-chain verification stays recorded. Re-check pulls current status.
+          </p>
         </CardContent>
       </Card>
     );
